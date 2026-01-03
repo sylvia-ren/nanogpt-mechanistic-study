@@ -5,6 +5,9 @@
 ## Project Overview
 This is a custom implementation of a causal, decoder-only Transformer (GPT-2 style) built from scratch. This project demonstrates the feasibility of training high-parameter models on consumer-grade Apple Silicon, transitioning from simple character-level statistics to capturing the complex, ironic prose of **Jane Austen**.
 
+## Live Demo
+![AustenGPT in action](demo.gif)
+
 The model was developed to study **Mechanistic Interpretability** and hardware acceleration using the **Metal Performance Shaders (MPS)** backend.
 
 ## Why Jane Austen?
