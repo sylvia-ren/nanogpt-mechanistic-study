@@ -1,4 +1,4 @@
-# nanogpt-mechanistic-study
+# Nanogpt-mechanistic-study
 
 # Regency-Era Language Modeling 
 
@@ -16,7 +16,7 @@ I chose the works of Jane Austen (*Pride & Prejudice*, *Emma*, etc.) for their u
 ## Technical Specifications & Scaling
 I conducted a scaling study to observe the jump in "intelligence" when moving from a CPU-bound toy model to a GPU-accelerated prototype.
 
-| Feature | Baseline Baseline | **AustenGPT (This Repo)** |
+| Feature | Baseline | **AustenGPT (This Repo)** |
 | :--- | :--- | :--- |
 | **Parameters** | 0.21 Million | **10.81 Million** |
 | **Context Window** | 32 tokens | **256 tokens** |
