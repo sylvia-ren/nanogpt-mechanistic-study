@@ -1,0 +1,17 @@
+.DS_Store
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Dossiers de configuration IDE
+.vscode/
+.idea/
+
+# Modèles et Checkpoints (TRES IMPORTANT : on ne veut pas upload 500Mo sur GitHub)
+*.pt
+*.pth
+checkpoint_*.pt
+
+# Données
+austen.txt
