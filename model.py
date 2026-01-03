@@ -121,3 +121,14 @@ class BigramLanguageModel(nn.Module):
             idx = torch.cat((idx, idx_next), dim=1) 
             logits = logits / 0.8
         return idx
+    
+    def generate_streaming(self, idx, max_new_tokens):
+        # idx est (B, T)
+        for _ in range(max_new_tokens):
+            idx_cond = idx[:, -block_size:]
+            logits, _ = self(idx_cond)
+            logits = logits[:, -1, :]
+            probs = F.softmax(logits, dim=-1)
+            idx_next = torch.multinomial(probs, num_samples=1)
+            idx = torch.cat((idx, idx_next), dim=1)
+            yield idx_next.item()

@@ -1,4 +1,6 @@
 import torch
+import sys
+import time
 from model import BigramLanguageModel
 
 # 1. Configuration & Device
@@ -32,11 +34,15 @@ except FileNotFoundError:
 model.eval() # Mode évaluation (désactive le dropout)
 
 # 5. Génération de texte
-print("\n--- Début de la génération (Style Jane Austen) ---\n")
+print("\n--- Start generating in Jane Austen's style ---\n")
 
 # On commence avec un token vide (0)
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-generated_tokens = model.generate(context, max_new_tokens=1000)[0].tolist()
 
-print(decode(generated_tokens))
-print("\n--- Fin de la génération ---")
+for token_id in model.generate_streaming(context, max_new_tokens=1000):
+    char = itos[token_id]
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(0.01)
+
+print("\n--- The end ---")
